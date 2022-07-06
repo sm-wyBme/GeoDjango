@@ -1,0 +1,17 @@
+    <form action="" method="POST" autocomplete="off">
+      {% csrf_token %} 
+      {{form.as_p}}
+      <button id="submit-button" type="submit">Confirm</button>
+    </form>
+
+    <h3>
+    Current Location: {{location}}
+    <br>
+    {% if request.POST %}
+    The Distance is between {{location}} and {{destination}} is {{distance}} kms
+    {% endif %}
+    </h3>
+
+    <hr />
+    {{map | safe}}
+    <hr />
